@@ -74,7 +74,9 @@ function QuizProvider({ children }) {
   const maxPossiblePoints = questions.reduce((acc, cur) => acc + cur.points, 0);
 
   useEffect(function () {
-    fetch("http://localhost:8000/questions")
+    fetch(
+      "https://raw.githubusercontent.com/jaafaralrjoob/react-quiz/main/data/questions.json"
+    )
       .then((res) => res.json())
       .then((data) => {
         dispatch({ type: "dataReceived", payload: data });
